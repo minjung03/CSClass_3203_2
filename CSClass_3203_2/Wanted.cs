@@ -11,7 +11,7 @@ namespace CSClass_3203_2
         public T Value;
         public Wanted(T value)
         {
-            Console.WriteLine(value);
+            Value = value;
         }
     }
 }
