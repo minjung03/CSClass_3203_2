@@ -14,6 +14,53 @@ namespace CSClass_3203_2
             rx = x + vx;
             ry = y + vy;
         }
+        struct PointStruct
+        {
+            public int x;
+            public int y;
+
+            public PointStruct(int x, int y)
+            {
+                this.x = x;
+                this.y = y;
+            }
+        }
+
+        class PointClass
+        {
+            public int x;
+            public int y;
+            public PointClass(int x, int y)
+            {
+                this.x = x;
+                this.y = y;
+            }
+
+        }
+        struct Point
+        {
+            public int x;
+            public int y;
+            public string testA; // 생성과 동시에 초기화 불가능
+            public string testB;
+
+            public Point(int x, int y)
+            {
+                this.x = x;
+                this.y = y;
+                this.testA = "testA";
+                this.testB = "testB";
+            }
+
+            public Point(int x, int y, string s)
+            {
+                this.x = x;
+                this.y = y;
+                this.testA = s;
+                this.testB = s;
+            }
+        }
+
         static void Main(string[] args)
         {
             // 제너릭
@@ -48,7 +95,7 @@ namespace CSClass_3203_2
             int y = 0;
             int vx = 1;
             int vy = 1;
-            Console.WriteLine("현재 좌표 ("+x+","+y+")");
+            Console.WriteLine("현재 좌표 (" + x + "," + y + ")");
             NextPos(x, y, vx, vy, out x, out y);
             Console.WriteLine("다음 좌표 (" + x + "," + y + ")\n");
 
@@ -75,53 +122,18 @@ namespace CSClass_3203_2
             Console.WriteLine(psA.x + "/" + psA.y);
             Console.WriteLine(psB.x + "/" + psB.y + "\n");
 
-        }
-        struct Point
-        {
-            public int x;
-            public int y;
-            public string testA; // 생성과 동시에 초기화 불가능
-            public string testB;
-
-            public Point(int x, int y)
+            // 인터페이스
+            List<Product> list = new List<Product>() {
+                new Product(){ Name="고구마", Price=1500 },
+                new Product(){ Name="사과", Price=2400 },
+                new Product(){ Name="바나나", Price=1000 },
+                new Product(){ Name="배", Price=3000 },
+            };
+            list.Sort();
+            foreach (var item in list)
             {
-                this.x = x;
-                this.y = y;
-                this.testA = "testA";
-                this.testB = "testB";
+                Console.WriteLine(item);
             }
-
-            public Point(int x, int y, string s)
-            {
-                this.x = x;
-                this.y = y;
-                this.testA = s;
-                this.testB = s;
-            }
-        }
-
-        struct PointStruct
-        {
-            public int x;
-            public int y;
-
-            public PointStruct(int x, int y)
-            {
-                this.x = x;
-                this.y = y;
-            }
-        }
-
-        class PointClass
-        {
-            public int x;
-            public int y;
-            public PointClass(int x, int y)
-            {
-                this.x = x;
-                this.y = y;
-            }
-
         }
   
     }
