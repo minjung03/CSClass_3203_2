@@ -8,7 +8,6 @@ namespace CSClass_3203_2
 {
     internal class Program
     {
-
         static void NextPos(int x, int y, int vx, int vy, out int rx, out int ry)
         {
             rx = x + vx;
@@ -138,12 +137,35 @@ namespace CSClass_3203_2
                 }
                 Console.WriteLine();
             }
+
+            IBasic test = new TestClass();
+            test.TestProperty = 3;
+            test.TestInstanceMethod();
+            // test.foobar(); -- 이렇게는 실행 안됨
+            (test as TestClass).foobar();
         }
         class Dummy : IDisposable
         {
             public void Dispose()
             {
                 Console.WriteLine("Dispose() 메서드를 호출했습니다.");
+            }
+        }
+
+        class TestClass : IBasic
+        {
+            public int foobar()
+            {
+                return 1;
+            }
+            public int TestProperty 
+            {
+                get => throw new NotImplementedException(); 
+                set => throw new NotImplementedException(); 
+            }
+            public int TestInstanceMethod()
+            {
+                throw new NotImplementedException();
             }
         }
 
